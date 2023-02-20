@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rental_mobil_flutter/Home.dart';
 import 'package:rental_mobil_flutter/register.dart';
-import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
+
 import '../helpers/size_helper.dart';
 import '../network/api.dart';
 
@@ -80,8 +81,10 @@ class StartState extends State<Login> {
       body: Container(
         height: displayHeight(context) * 1,
         decoration: BoxDecoration(
-            gradient:
-                LinearGradient(colors: [Colors.blueAccent, Colors.blueGrey])),
+            gradient: LinearGradient(colors: [
+          Color.fromARGB(255, 2, 98, 23),
+          Color.fromARGB(255, 255, 255, 255)
+        ])),
         child: Form(
           key: _formKey,
           child: Column(
@@ -91,8 +94,15 @@ class StartState extends State<Login> {
                 padding: EdgeInsets.only(bottom: 10),
                 child: Container(
                   width: displayWidth(context) * 1,
-                  child: FlutterLogo(
-                    size: displaySize(context).height * 0.1,
+                  child: Center(
+                    child: Text(
+                      'Rental Mobil',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 35,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
+                    ),
                   ),
                 ),
               ),
