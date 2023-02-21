@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:lottie/lottie.dart';
-import 'package:rental_mobil_flutter/SplashScreen.dart';
+import 'package:rental_mobil_flutter/Screens/SplashScreen.dart';
 
 void main() {
   runApp(const MyApp());

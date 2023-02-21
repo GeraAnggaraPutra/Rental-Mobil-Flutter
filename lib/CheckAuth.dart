@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rental_mobil_flutter/Home.dart';
-import 'package:rental_mobil_flutter/login.dart';
+import 'package:rental_mobil_flutter/Screens/Home.dart';
+import 'package:rental_mobil_flutter/Screens/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CheckAuth extends StatefulWidget {

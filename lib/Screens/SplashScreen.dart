@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rental_mobil_flutter/CheckAuth.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:rental_mobil_flutter/Home.dart';
+import 'package:rental_mobil_flutter/Screens/Home.dart';
+import 'package:rental_mobil_flutter/Screens/login.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -12,8 +13,8 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       splash: Lottie.asset("assets/car_splash.json"),
-      nextScreen: Home(),
-      // backgroundColor: Color.fromRGBO(36, 54, 101, 1.0),
+      nextScreen: Login(),
+      backgroundColor: Color.fromARGB(255, 1, 140, 20),
       splashIconSize: 250,
       duration: 3000,
       splashTransition: SplashTransition.sizeTransition,

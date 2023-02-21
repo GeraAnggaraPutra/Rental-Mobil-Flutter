@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:rental_mobil_flutter/Home.dart';
-import 'package:rental_mobil_flutter/register.dart';
+import 'package:rental_mobil_flutter/Screens/Home.dart';
+import 'package:rental_mobil_flutter/Screens/register.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
-import '../helpers/size_helper.dart';
-import '../network/api.dart';
+import '../../helpers/size_helper.dart';
+import '../../network/api.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -82,8 +82,8 @@ class StartState extends State<Login> {
         height: displayHeight(context) * 1,
         decoration: BoxDecoration(
             gradient: LinearGradient(colors: [
-          Color.fromARGB(255, 2, 98, 23),
-          Color.fromARGB(255, 255, 255, 255)
+          Color.fromARGB(255, 0, 44, 10),
+          Color.fromARGB(255, 1, 140, 20)
         ])),
         child: Form(
           key: _formKey,
@@ -111,6 +111,7 @@ class StartState extends State<Login> {
                 child: TextFormField(
                   // controller: emailController,
                   keyboardType: TextInputType.name,
+                  style: TextStyle(color: Colors.white),
                   onFieldSubmitted: (value) {
                     //Validator
                   },
@@ -124,9 +125,22 @@ class StartState extends State<Login> {
                     return null;
                   },
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white
+                      ),
+                    ),
+                    prefixIcon: Icon(
+                      Icons.person,
+                      size: 35,
+                      color: Colors.white,
+                    ),
                     labelText: "Email",
-                    hintText: 'Masukan email',
+                    labelStyle: TextStyle(color: Colors.white),
+                    hintText: 'Masukkan email',
+                    hintStyle: TextStyle(
+                      color: Colors.white
+                    ),
                   ),
                 ),
               ),
@@ -135,23 +149,38 @@ class StartState extends State<Login> {
                 child: TextFormField(
                   // controller: passwordController,
                   keyboardType: TextInputType.name,
+                  style: TextStyle(color: Colors.white),
                   obscureText: _isHiddenPassword,
                   onFieldSubmitted: (value) {
                     //Validator
                   },
                   validator: (passwordValue) {
                     if (passwordValue!.isEmpty) {
-                      return 'Masukan Password!';
+                      return 'Masukkan Password!';
                     }
                     password = passwordValue;
                     return null;
                   },
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                     focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white
+                      ),
+                    ),
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      size: 35,
+                      color: Colors.white,
+                    ),
                     labelText: "Password",
-                    hintText: 'Masukan Password',
+                    labelStyle: TextStyle(color: Colors.white),
+                    hintText: 'Masukkan Password',
+                    hintStyle: TextStyle(
+                      color: Colors.white
+                    ),
                     fillColor: Colors.white,
                     suffixIcon: IconButton(
+                      color: Colors.white,
                       onPressed: showHide,
                       icon: Icon(_isHiddenPassword
                           ? Icons.visibility_off

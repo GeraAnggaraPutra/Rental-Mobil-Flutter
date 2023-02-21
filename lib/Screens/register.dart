@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rental_mobil_flutter/Home.dart';
-import 'package:rental_mobil_flutter/login.dart';
+import 'package:rental_mobil_flutter/Helpers/size_helper.dart';
+import 'package:rental_mobil_flutter/Screens/Home.dart';
+import 'package:rental_mobil_flutter/Screens/login.dart';
 import 'package:rental_mobil_flutter/network/api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
@@ -36,7 +37,7 @@ class StartState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Colors.blue,
+      backgroundColor: Color.fromARGB(255, 0, 44, 10),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 28, vertical: 72),
@@ -44,7 +45,7 @@ class StartState extends State<Register> {
             children: [
               Card(
                 elevation: 4.0,
-                color: Colors.white10,
+                color: Color.fromARGB(255, 1, 140, 20),
                 margin: EdgeInsets.only(top: 86),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14),
@@ -69,7 +70,18 @@ class StartState extends State<Register> {
                             cursorColor: Colors.blue,
                             keyboardType: TextInputType.text,
                             decoration: InputDecoration(
-                              hintText: "Full Name",
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              prefixIcon: Icon(
+                                Icons.person,
+                                size: 35,
+                                color: Colors.white,
+                              ),
+                              labelText: "Username",
+                              labelStyle: TextStyle(color: Colors.white),
+                              hintText: 'Masukkan Username',
+                              hintStyle: TextStyle(color: Colors.white),
                             ),
                             validator: (nameValue) {
                               if (nameValue!.isEmpty) {
@@ -83,7 +95,18 @@ class StartState extends State<Register> {
                             cursorColor: Colors.blue,
                             keyboardType: TextInputType.text,
                             decoration: InputDecoration(
-                              hintText: "Email",
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              prefixIcon: Icon(
+                                Icons.email,
+                                size: 35,
+                                color: Colors.white,
+                              ),
+                              labelText: "Email",
+                              labelStyle: TextStyle(color: Colors.white),
+                              hintText: 'Masukkan email',
+                              hintStyle: TextStyle(color: Colors.white),
                             ),
                             validator: (emailValue) {
                               if (emailValue!.isEmpty) {
@@ -98,8 +121,21 @@ class StartState extends State<Register> {
                             keyboardType: TextInputType.text,
                             obscureText: _secureText,
                             decoration: InputDecoration(
-                              hintText: "Password",
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              prefixIcon: Icon(
+                                Icons.lock,
+                                size: 35,
+                                color: Colors.white,
+                              ),
+                              labelText: "Password",
+                              labelStyle: TextStyle(color: Colors.white),
+                              hintText: 'Masukkan Password',
+                              hintStyle: TextStyle(color: Colors.white),
+                              fillColor: Colors.white,
                               suffixIcon: IconButton(
+                                color: Colors.white,
                                 onPressed: showHide,
                                 icon: Icon(_secureText
                                     ? Icons.visibility_off
@@ -118,14 +154,27 @@ class StartState extends State<Register> {
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 18, vertical: 10),
-                            child: Text(
-                              _isLoading ? 'Proccessing..' : 'REGISTER',
-                              textDirection: TextDirection.ltr,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.0,
-                                decoration: TextDecoration.none,
-                                fontWeight: FontWeight.normal,
+                            child: Container(
+                              width: displayWidth(context) * 1,
+                              height: 60,
+                              margin: EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  gradient: LinearGradient(colors: [
+                                    Colors.black87,
+                                    Colors.black87
+                                  ])),
+                              child: Center(
+                                child: Text(
+                                  _isLoading ? 'Proccessing..' : 'REGISTER',
+                                  textDirection: TextDirection.ltr,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.0,
+                                    decoration: TextDecoration.none,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
