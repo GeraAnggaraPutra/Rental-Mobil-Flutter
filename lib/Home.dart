@@ -22,21 +22,37 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    getMobils();
     return Scaffold(
-      body: FutureBuilder(
-        future: getMobils(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-                itemCount: snapshot.data.length,
-                itemBuilder: (context, index) {
-                  return Text(snapshot.data['data']['index']['nama_mobil']);
-                });
-          } else {
-            return Text('Data Error');
-          }
-        },
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.blueAccent,
+        title: Text("Rent Car"),
       ),
-    );
+      body: Center(
+        child: Text(
+          'Rental Mobil',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.blueAccent
+          ),
+        ),
+      ),
+        // body: FutureBuilder(
+        //   future: getMobils(),
+        //   builder: (context, snapshot) {
+        //     if (snapshot.hasData) {
+        //       return ListView.builder(
+        //           itemCount: snapshot.data.length,
+        //           itemBuilder: (context, index) {
+        //             return Text(snapshot.data['data']['index']['nama_mobil']);
+        //           });
+        //     } else {
+        //       return Text('Data Error');
+        //     }
+        //   },
+        // ),
+        );
   }
 }
